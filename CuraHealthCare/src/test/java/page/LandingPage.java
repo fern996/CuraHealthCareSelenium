@@ -8,13 +8,13 @@ import reusable.Base;
 
 public class LandingPage extends Base {
 	@FindBy(id="btn-make-appointment")
-	private WebElement make_appointment;
+	private WebElement makeAppointment;
 
 	public LandingPage() {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void click_make_appointment() {
-		make_appointment.click();
+	public void click_makeAppointment() {
+		makeAppointment.click();
 	}
 }
