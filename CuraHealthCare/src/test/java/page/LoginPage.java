@@ -8,13 +8,19 @@ import reusable.Base;
 
 public class LoginPage extends Base {
 	@FindBy(xpath="//button[@id='btn-login']")
-	private WebElement link_login_btn;
+	private WebElement link_loginBtn;
 	
 	@FindBy(xpath="//input[@id='txt-username']")
 	private WebElement link_username;
 	
 	@FindBy(xpath="//input[@id='txt-password']")
 	private WebElement link_password;
+	
+	@FindBy(xpath="//input[@aria-describedby='demo_username_label']")
+	private WebElement link_demoUser;
+	
+	@FindBy(xpath="//input[@aria-describedby='demo_password_label']")
+	private WebElement link_demoPassword;
 	
 	public LoginPage() {
 		PageFactory.initElements(driver, this);
@@ -28,7 +34,18 @@ public class LoginPage extends Base {
 		link_password.sendKeys(a);
 	}
 	
-	public void login() {
-		link_login_btn.click();
+	public void click_Login() {
+		link_loginBtn.click();
 	}
+	
+	public String get_DemoUser() {
+		String gettext = link_demoUser.getText();
+		return gettext;
+	}
+	
+	public String get_DemoPassowrd() {
+		String gettext = link_demoUser.getText();
+		return gettext;
+	}
+	
 }
