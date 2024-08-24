@@ -22,6 +22,9 @@ public class LoginPage extends Base {
 	@FindBy(xpath="//input[@aria-describedby='demo_password_label']")
 	private WebElement link_demoPassword;
 	
+	@FindBy(xpath="//div[@class='lead text-danger']")
+	private WebElement link_loginFailedTxt;
+	
 	public LoginPage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -48,4 +51,7 @@ public class LoginPage extends Base {
 		return gettext;
 	}
 	
+	public boolean is_LoginFailed() {
+		return link_loginFailedTxt.isDisplayed();
+	}
 }

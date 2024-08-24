@@ -1,5 +1,6 @@
 package test;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -11,7 +12,7 @@ import reusable.Base;
 public class LoginTests extends Base{
 	LandingPage landp;
 	LoginPage logp;
-	
+	String expected_url = "https://katalon-demo-cura.herokuapp.com/#appointment";
 	@BeforeTest
 	public void setup() {
 		initialization();
@@ -22,7 +23,7 @@ public class LoginTests extends Base{
 		driver.close();
 	}
 	
-	@Test
+	@Test(priority = 0)
 	public void successfulLogin() throws InterruptedException{
 		landp = new LandingPage();
 		logp = new LoginPage();
@@ -30,6 +31,20 @@ public class LoginTests extends Base{
 		logp.type_Username(logp.get_DemoUser());
 		logp.type_Password(logp.get_DemoPassowrd());
 		logp.click_Login();
+		Thread.sleep(1000);
+		String expectedUrl= driver.getCurrentUrl();
+		Assert.assertEquals(expectedUrl,expected_url);
 	}
 	
+	@Test(priority = 1)
+	public void badUser() throws InterruptedException{
+		landp = new LandingPage();
+		logp = new LoginPage();
+		landp.click_makeAppointment();
+		logp.type_Username("shawn");
+		logp.type_Password(logp.get_DemoPassowrd());
+		logp.click_Login();
+		String expectedUrl= driver.getCurrentUrl();
+		Assert.assertEquals(expectedUrl,expected_url);
+	}
 }
