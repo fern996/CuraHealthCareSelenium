@@ -40,10 +40,9 @@ public class LoginTests extends Base{
 		landp = new LandingPage();
 		logp = new LoginPage();
 		landp.click_makeAppointment();
-		logp.type_Username("shawn");
+		logp.type_Username("test");
 		logp.type_Password(logp.get_DemoPassowrd());
 		logp.click_Login();
-		String expectedUrl= driver.getCurrentUrl();
-		Assert.assertEquals(expectedUrl,expected_url);
+		Assert.assertEquals(true,logp.is_LoginFailed());
 	}
 }

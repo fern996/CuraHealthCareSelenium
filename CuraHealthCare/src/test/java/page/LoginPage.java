@@ -22,7 +22,7 @@ public class LoginPage extends Base {
 	@FindBy(xpath="//input[@aria-describedby='demo_password_label']")
 	private WebElement link_demoPassword;
 	
-	@FindBy(xpath="//div[@class='lead text-danger']")
+	@FindBy(xpath="//p[@class='lead text-danger']")
 	private WebElement link_loginFailedTxt;
 	
 	public LoginPage() {
