@@ -23,7 +23,7 @@ public class LoginTests extends Base{
 		driver.close();
 	}
 	
-	@Test(priority = 0)
+	@Test()
 	public void successfulLogin() throws InterruptedException{
 		landp = new LandingPage();
 		logp = new LoginPage();
@@ -35,7 +35,7 @@ public class LoginTests extends Base{
 		Assert.assertEquals(expectedUrl,expected_url);
 	}
 	
-	@Test(priority = 1)
+	@Test()
 	public void badUser() throws InterruptedException{
 		landp = new LandingPage();
 		logp = new LoginPage();
