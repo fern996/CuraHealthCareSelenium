@@ -31,7 +31,6 @@ public class LoginTests extends Base{
 		logp.type_Username(logp.get_DemoUser());
 		logp.type_Password(logp.get_DemoPassowrd());
 		logp.click_Login();
-		Thread.sleep(1000);
 		String expectedUrl= driver.getCurrentUrl();
 		Assert.assertEquals(expectedUrl,expected_url);
 	}
