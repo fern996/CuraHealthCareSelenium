@@ -42,12 +42,12 @@ public class LoginPage extends Base {
 	}
 	
 	public String get_DemoUser() {
-		String gettext = link_demoUser.getText();
+		String gettext = link_demoUser.getAttribute("value");
 		return gettext;
 	}
 	
 	public String get_DemoPassowrd() {
-		String gettext = link_demoUser.getText();
+		String gettext = link_demoPassword.getAttribute("value");
 		return gettext;
 	}
 	
