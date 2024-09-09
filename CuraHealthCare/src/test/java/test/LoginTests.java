@@ -89,5 +89,7 @@ public class LoginTests extends Base{
 		logp.click_Login();
 		Assert.assertEquals(true,logp.is_LoginFailed());
 	}
+	
+	testing
 }
 
