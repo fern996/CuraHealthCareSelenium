@@ -45,4 +45,49 @@ public class LoginTests extends Base{
 		logp.click_Login();
 		Assert.assertEquals(true,logp.is_LoginFailed());
 	}
+	
+	@Test()
+	public void badPassword() throws InterruptedException{
+		landp = new LandingPage();
+		logp = new LoginPage();
+		landp.click_makeAppointment();
+		logp.type_Username(logp.get_DemoUser());
+		logp.type_Password("test");
+		logp.click_Login();
+		Assert.assertEquals(true,logp.is_LoginFailed());
+	}
+	
+	@Test()
+	public void blankUser() throws InterruptedException{
+		landp = new LandingPage();
+		logp = new LoginPage();
+		landp.click_makeAppointment();
+		logp.type_Username("");
+		logp.type_Password(logp.get_DemoPassowrd());
+		logp.click_Login();
+		Assert.assertEquals(true,logp.is_LoginFailed());
+	}
+	
+	@Test()
+	public void blankPassword() throws InterruptedException{
+		landp = new LandingPage();
+		logp = new LoginPage();
+		landp.click_makeAppointment();
+		logp.type_Username(logp.get_DemoUser());
+		logp.type_Password("");
+		logp.click_Login();
+		Assert.assertEquals(true,logp.is_LoginFailed());
+	}
+	
+	@Test()
+	public void blankFields() throws InterruptedException{
+		landp = new LandingPage();
+		logp = new LoginPage();
+		landp.click_makeAppointment();
+		logp.type_Username("");
+		logp.type_Password("");
+		logp.click_Login();
+		Assert.assertEquals(true,logp.is_LoginFailed());
+	}
 }
+
